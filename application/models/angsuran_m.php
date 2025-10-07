@@ -70,7 +70,8 @@ class Angsuran_m extends CI_Model {
 						'kas_id'			=>	$this->input->post('kas_id'),
 						'jns_trans'		=>	'48',
 						'keterangan'	=>	$this->input->post('ket'),
-						'user_name'		=> $this->data['u_name']
+						'user_name'		=> $this->data['u_name'],
+						'angsuran_input' => $this->input->post('angsuran_r')
 						);
 		///// SQL START
 		$this->db->trans_start();

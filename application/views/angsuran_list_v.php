@@ -347,11 +347,14 @@ striped="true">
 				<td> Jumlah Angsuran </td>
 				<td> : </td>
 				<td>
+					<input type="text" id="angsuran_r" name="angsuran_r" class="inputform" style="width:150px;"/>
+				</td>
+				<!-- <td>
 					<div class="inputform">
 						<?php echo number_format((nsi_round($nomangsuran))); ?></div>
 					<input type="hidden" id="angsuran" name="angsuran"
 						value="<?php echo ($nomangsuran); ?>" readonly="readonly" />
-				</td>
+				</td> -->
 			</tr>
 			<tr style="height:30px">
 				<td> Sisa Tagihan</td>

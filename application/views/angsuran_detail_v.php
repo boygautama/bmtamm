@@ -214,6 +214,7 @@ if(!empty($simulasi_tagihan)) {
 	$jml_bunga = 0;
 	$jml_ags = 0;
 	$jml_adm = 0;
+	$jumlah_angsuran_r = 0;
 	foreach ($simulasi_tagihan as $row) {
 		if(($no % 2) == 0) {
 			$warna="#FAFAD2";
@@ -227,6 +228,10 @@ if(!empty($simulasi_tagihan)) {
 		$jml_adm = $row['biaya_adm'];
 		$jml_ags += $row['jumlah_ags'];
 		$total_angsuranblmn = $row['angsuran_pokok'] + $row['bunga_pinjaman'] + ($no == 1 ? $row['biaya_adm'] : 0);
+
+		// new
+		$jumlah_angsuran_r += $total_angsuranblmn;
+		// 
 
 		echo '
 			<tr bgcolor='.$warna.'>
@@ -244,7 +249,7 @@ if(!empty($simulasi_tagihan)) {
 				<td class="h_kanan"><strong>'.number_format(nsi_round($jml_pokok)).'</strong></td>
 				<td class="h_kanan"><strong>'.number_format(nsi_round($jml_bunga)).'</strong></td>
 				<td class="h_kanan"><strong>'.number_format(nsi_round($jml_adm)).'</strong></td>
-				<td class="h_kanan"><strong>'.number_format(nsi_round($jml_ags)).'</strong></td>
+				<td class="h_kanan"><strong>'.number_format(nsi_round($jumlah_angsuran_r)).'</strong></td>
 				<td></td>
 			</tr>
 		</table>';
