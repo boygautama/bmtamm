@@ -347,7 +347,7 @@ striped="true">
 				<td> Jumlah Angsuran </td>
 				<td> : </td>
 				<td>
-					<input type="text" id="angsuran_r" name="angsuran_r" class="inputform" style="width:150px;"/>
+					<input type="number" id="angsuran_r" name="angsuran_r" class="inputform" style="width:150px;"/>
 				</td>
 				<!-- <td>
 					<div class="inputform">

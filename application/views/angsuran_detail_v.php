@@ -40,6 +40,10 @@ $dibayar = $hitung_dibayar->total;
 $jml_denda=$hitung_denda->total_denda;
 $sisa_bayar = $tagihan - $dibayar;
 $total_bayar = $sisa_bayar + $jml_denda;
+
+// new
+$jumlah_angsuran_r = 0;
+// akhir new
 ?>
 
 <!-- menu atas -->
@@ -186,7 +190,7 @@ echo '<a href="'.site_url().'/pinjaman" class="btn btn-sm btn-danger" title="Kem
 				<td> Sisa Angsuran : <span id="det_sisa_ags"> <?php echo $row_pinjam->lama_angsuran - $sisa_ags; ?> </span> Bulan </td>
 				<td> Dibayar : Rp. <span id="det_sudah_bayar"> <?php echo number_format(nsi_round($dibayar)); ?></span> </td>
 				<td> Denda : Rp. <span id="det_jml_denda"> <?php echo  number_format(nsi_round($jml_denda)); ?> </span> </td>
-				<td> Sisa Tagihan Rp. <span id="total_bayar"> <?php echo  number_format(nsi_round($total_bayar)); ?> </span> </td>
+				<td> Sisa Tagihan Rp. <span id="total_bayar"> <?php echo  number_format(nsi_round($jumlah_angsuran_r)); ?> </span> </td>
 				<td> Status Pelunasan : <span id="ket_lunas"> <?php echo $row_pinjam->lunas; ?> </span> </td>
 			</code>
 		</tr>
@@ -214,7 +218,6 @@ if(!empty($simulasi_tagihan)) {
 	$jml_bunga = 0;
 	$jml_ags = 0;
 	$jml_adm = 0;
-	$jumlah_angsuran_r = 0;
 	foreach ($simulasi_tagihan as $row) {
 		if(($no % 2) == 0) {
 			$warna="#FAFAD2";
@@ -255,6 +258,10 @@ if(!empty($simulasi_tagihan)) {
 		</table>';
 }
 ?>
+
+<script>
+	$('#total_bayar').text('<?php echo number_format(nsi_round($jumlah_angsuran_r)); ?>');
+</script>
 
 
 <label class="text-green"> Detail Transaksi Pembayaran xxxx:</label>

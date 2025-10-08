@@ -262,7 +262,7 @@ striped="true">
 		<tr>
 			<td> Sisa Tagihan</td>
 			<td> :</td>
-			<td><input type="text" class="inputform" id="tagihan" name="tagihan" readonly="true" style="width:195px; height:23px"/></td>
+			<td><input type="number" class="inputform" id="tagihan" name="tagihan" style="width:195px; height:23px"/></td>
 		</tr>	
 		<tr style="height:30px">
 			<td> Jumlah Bayar</td>
@@ -409,7 +409,9 @@ function create(){
 			$('#angsuran_ke').text(result.ags_ke);
 			$('#sisa_ags').text(result.sisa_ags);
 			$('#jumlah_bayar ~ span input').val(result.total_tagihan);
-			$('#tagihan').val(result.total_tagihan);
+			let str = result.total_tagihan;
+			let tagihan_r = str.replaceAll(',', '');
+			$('#tagihan').val(tagihan_r);
 			}
 		}
 	});  
