@@ -199,7 +199,11 @@ $nomangsuran = $row_pinjam->ags_per_bulan-$row_pinjam->biaya_adm;
 			<td> Sisa Angsuran : <span id="det_sisa_ags"> <?php echo $row_pinjam->lama_angsuran - $sisa_ags; ?> </span> Bulan </td>
 			<td> Dibayar : Rp. <span id="det_sudah_bayar"> <?php echo number_format(nsi_round($dibayar)); ?></span> </td>
 			<td> Denda : Rp. <span id="det_jml_denda"> <?php echo  number_format(nsi_round($jml_denda)); ?> </span> </td>
+			<?php if($row_pinjam->lunas <> 'Lunas'): ?>
 			<td> Sisa Tagihan Rp. <span id="total_bayar"> <?php echo  number_format(nsi_round($total_bayar)); ?> </span> </td>
+			<?php else: ?>
+			<td> Sisa Tagihan Rp. <span id="total_bayarr"> 0 </span> </td>
+			<?php endif; ?>
 			<td> Status Pelunasan : <span id="ket_lunas"> <?php echo $row_pinjam->lunas; ?> </span> </td>
 		</code>
 		</tr>
@@ -347,7 +351,7 @@ striped="true">
 				<td> Jumlah Angsuran </td>
 				<td> : </td>
 				<td>
-					<input type="number" id="angsuran_r" name="angsuran_r" class="inputform" style="width:150px;"/>
+					<input type="number" id="angsuran_r" autocomplete="off" name="angsuran_r" class="inputform" style="width:150px;"/>
 				</td>
 				<!-- <td>
 					<div class="inputform">

@@ -64,14 +64,15 @@ class Angsuran_m extends CI_Model {
 						'tgl_bayar'		=>	$this->input->post('tgl_transaksi'),
 						'pinjam_id'		=>	$this->input->post('pinjam_id'),
 						'angsuran_ke'	=>	$ags_ke,
-						'jumlah_bayar'	=>	str_replace(',', '', $this->input->post('angsuran')),
+						'jumlah_bayar'	=>	str_replace(',', '', $this->input->post('angsuran_r')),
 						'denda_rp'		=>	$denda,
 						'ket_bayar'		=>	'Angsuran',
 						'kas_id'			=>	$this->input->post('kas_id'),
 						'jns_trans'		=>	'48',
 						'keterangan'	=>	$this->input->post('ket'),
 						'user_name'		=> $this->data['u_name'],
-						'angsuran_input' => $this->input->post('angsuran_r')
+						'angsuran_input' => $this->input->post('angsuran_r'),
+						'update_data'   => date('Y-m-d H:i:s')
 						);
 		///// SQL START
 		$this->db->trans_start();

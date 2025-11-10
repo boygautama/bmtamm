@@ -179,10 +179,14 @@
 	<div class="box box-solid bg-light-blue">
 	<table width="100%" style="font-size: 12px;">
 		<tr>
-			<td><strong> Detail Pembayaran </strong> -->> </td>
+			<td><strong> Detail Pembayaran </strong></td>
 			<td> Dibayar : Rp. <span id="det_sudah_bayar"> <?php echo number_format(nsi_round($dibayar)); ?></span> </td>
 			<td> Denda : Rp. <span id="det_jml_denda"> <?php echo  number_format(nsi_round($jml_denda)); ?> </span> </td>
+			<?php if($row_pinjam->lunas <> 'Lunas'): ?>
 			<td> Sisa Tagihan Rp. <span id="total_bayar"> <?php echo  number_format(nsi_round($total_bayar)); ?> </span> </td>
+			<?php else: ?>
+			<td> Sisa Tagihan Rp. <span id="total_bayarr"> 0 </span> </td>
+			<?php endif; ?>
 			<td> Status Pelunasan : <span id="ket_lunas"> <?php echo $row_pinjam->lunas; ?> </span> </td>
 		</code>
 		</tr>

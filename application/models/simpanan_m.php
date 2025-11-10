@@ -139,7 +139,8 @@ class Simpanan_m extends CI_Model {
 			'user_name'				=> $this->data['u_name'],
 			'nama_penyetor'			=> $this->input->post('nama_penyetor'),
 			'no_identitas'			=> $this->input->post('no_identitas'),
-			'alamat'					=> $this->input->post('alamat')
+			'alamat'					=> $this->input->post('alamat'),
+			'update_data' 			=> date('Y-m-d H:i:s')
 			);
 		return $this->db->insert('tbl_trans_sp', $data);
 	}

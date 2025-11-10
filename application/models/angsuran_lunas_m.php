@@ -66,7 +66,8 @@ class Angsuran_lunas_m extends CI_Model {
 						'jns_trans'		=>	'48',
 						'keterangan'	=>	$this->input->post('ket'),
 						'user_name'		=> $this->data['u_name'],
-						'sisa_tagihan_input' => $this->input->post('tagihan')
+						'sisa_tagihan_input' => $this->input->post('tagihan'),
+						'update_data' => date('Y-m-d H:i:s')
 						);
 		$this->db->trans_start();
 		$this->db->insert('tbl_pinjaman_d', $data);

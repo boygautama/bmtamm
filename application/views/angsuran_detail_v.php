@@ -190,7 +190,11 @@ echo '<a href="'.site_url().'/pinjaman" class="btn btn-sm btn-danger" title="Kem
 				<td> Sisa Angsuran : <span id="det_sisa_ags"> <?php echo $row_pinjam->lama_angsuran - $sisa_ags; ?> </span> Bulan </td>
 				<td> Dibayar : Rp. <span id="det_sudah_bayar"> <?php echo number_format(nsi_round($dibayar)); ?></span> </td>
 				<td> Denda : Rp. <span id="det_jml_denda"> <?php echo  number_format(nsi_round($jml_denda)); ?> </span> </td>
-				<td> Sisa Tagihan Rp. <span id="total_bayar"> <?php echo  number_format(nsi_round($jumlah_angsuran_r)); ?> </span> </td>
+				<?php if($row_pinjam->lunas <> 'Lunas'): ?>
+				<td> Sisa Tagihann Rp. <span id="total_bayar"> <?php echo  number_format(nsi_round($jumlah_angsuran_r)); ?> </span> </td>
+				<?php else: ?>
+				<td> Sisa Tagihan Rp. <span id="total_bayarr"> 0 </span> </td>
+				<?php endif; ?>
 				<td> Status Pelunasan : <span id="ket_lunas"> <?php echo $row_pinjam->lunas; ?> </span> </td>
 			</code>
 		</tr>
